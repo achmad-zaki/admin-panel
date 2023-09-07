@@ -28,7 +28,7 @@ const Sidebar = (props) => {
                     </div>
                 </div>
             </aside>
-            <main className='bg-[#F5F6F9] ml-20 md:ml-56 w-full pt-24 pb-5 px-5 min-h-screen'>
+            <main className='bg-[#F5F6F9] ml-20 md:ml-56 w-full pt-24 pb-5 px-5 min-h-screen overflow-hidden'>
                 <Breadcrumb label={label} />
                 {children}
             </main>

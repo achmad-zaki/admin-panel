@@ -12,6 +12,8 @@ const Layouts = ({ children }) => {
         return 'Dashboard';
       case '/data-pengguna':
         return 'Data Pengguna';
+      case '/postingan':
+        return 'Postingan';
       default:
         return 'Unknown Page';
     }

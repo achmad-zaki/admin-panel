@@ -1,4 +1,4 @@
-export const Pengguna = [
+export const Dummy = [
     {
         name: "achmad zaki",
         email: "7Lm6o@example.com",

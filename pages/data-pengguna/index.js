@@ -1,11 +1,10 @@
 import Layouts from '@/components/Layouts'
-import { Pengguna } from '@/Data'
-import { FaEye, FaTrash } from "react-icons/fa"
+import { Dummy } from '@/dummy'
+import { FaEye } from "react-icons/fa"
 import ReactPaginate from 'react-paginate'
 
-const DataPengguna = () => {
+export default function DataPengguna() {
   const tableHead = [
-    'No',
     'Nama',
     'Email',
     'Alamat',
@@ -15,34 +14,47 @@ const DataPengguna = () => {
 
   return (
     <Layouts>
-      <div className='overflow-x-auto rounded-md w-full'>
-        <table className="table-auto border text-left">
-          <thead className='bg-gray-200 uppercase'>
-            <tr>
-              {tableHead.map((item, index) => (
-                <th key={index} className='p-4 text-sm font-bold text-dark'>{item}</th>
-              ))}
-            </tr>
-          </thead>
-          <tbody className='bg-white'>
-            {Pengguna.map((item, index) => (
-              <tr key={index} className='text-sm border'>
-                <td className='p-4 border text-center'>{index + 1}</td>
-                <td className='p-4'>{item.name}</td>
-                <td className='p-4'>{item.email}</td>
-                <td className='p-4'>{item.alamat}</td>
-                <td className='p-4'>{item.no_telp}</td>
-                <td className='p-4 text-white text-center border'>
-                  <button className='bg-primary p-3 rounded-md'><FaEye /></button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+      <div className='bg-white rounded-md'>
+        <header className='px-5 py-4 border-b border-slate-100 bg-primary rounded-t-md'>
+          <h2 className='font-semibold text-white'>Tabel Pengguna Aplikasi</h2>
+        </header>
+        <div className="p-3">
+          <div className='overflow-x-auto'>
+            <table className='table-auto w-full'>
+              <thead className='text-xs font-semibold uppercase text-dark bg-gray-300'>
+                <tr>
+                  {tableHead.map((item, index) => (
+                    <th key={index} className='px-4 py-3 whitespace-nowrap'>
+                      <div className='font-semibold text-left text-dark'>{item}</div>
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody className='text-sm divide-y divide-slate-100'>
+                {Dummy.map((item, index) => (
+                  <tr key={index}>
+                    <td className='px-4 py-3 whitespace-nowrap'>
+                      <div className="text-left">{item.name}</div>
+                    </td>
+                    <td className='p-2 whitespace-nowrap'>
+                      <div className="text-left">{item.email}</div>
+                    </td>
+                    <td className='p-2 whitespace-nowrap'>
+                      <div className="text-left">{item.alamat}</div>
+                    </td>
+                    <td className='p-2 whitespace-nowrap'>
+                      <div className="text-left">{item.no_telp}</div>
+                    </td>
+                    <td className='text-white p-2 text-center'>
+                      <button className='bg-primary p-4 rounded-md'><FaEye size={15} /></button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
-        <ReactPaginate className="border flex" />
     </Layouts>
   )
 }
-
-export default DataPengguna
